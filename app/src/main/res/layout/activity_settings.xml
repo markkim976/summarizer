@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <!-- 🔝 툴바 한 줄 (상단 마진으로 여백 확보) -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:padding="16dp"
+        android:background="@android:color/white">
+
+        <!-- 왼쪽: 돌아가기 -->
+        <TextView
+            android:id="@+id/backText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="&lt;&lt; 돌아가기"
+            android:textColor="#007AFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- 가운데: 설정 -->
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="설정"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+    <!-- 🔽 설정 프래그먼트 표시 영역 -->
+    <FrameLayout
+        android:id="@+id/settings_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+</LinearLayout>

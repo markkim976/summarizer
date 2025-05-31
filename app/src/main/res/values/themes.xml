@@ -1,0 +1,18 @@
+<resources>
+    <!-- 메인 테마 -->
+    <style name="Theme.Summarizer" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+
+    <!-- ✅ 스플래쉬 테마 수정 -->
+    <style name="Theme.Splash" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- ✅ 액션바 제거 -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <!-- ✅ 배경색 화이트 설정 -->
+        <item name="android:windowBackground">@android:color/white</item>
+    </style>
+</resources>

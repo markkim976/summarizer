@@ -1,0 +1,61 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 계정 관리 -->
+    <PreferenceCategory android:title="👤 계정 관리">
+        <Preference
+            android:key="account_email"
+            android:title="로그인된 이메일"
+            android:summary="example@gmail.com"
+            android:enabled="false" />
+
+        <Preference
+            android:key="logout"
+            android:title="로그아웃"
+            android:summary="현재 계정에서 로그아웃합니다." />
+    </PreferenceCategory>
+
+    <!-- 데이터 관리 -->
+    <PreferenceCategory android:title="🗂 데이터 관리">
+        <Preference
+            android:key="delete_all_data"
+            android:title="데이터 전체 삭제"
+            android:summary="모든 요약/메모 데이터를 삭제합니다." />
+
+        <Preference
+            android:key="clear_cache"
+            android:title="캐시 초기화"
+            android:summary="로컬에 저장된 캐시를 삭제합니다." />
+    </PreferenceCategory>
+
+    <!-- 요약 옵션 -->
+    <PreferenceCategory android:title="🧠 요약 옵션">
+        <ListPreference
+            android:key="summary_mode"
+            android:title="요약 방식 선택"
+            android:entries="@array/summary_modes"
+            android:entryValues="@array/summary_mode_values"
+            android:defaultValue="simple"
+            android:summary="요약 스타일을 선택하세요" />
+
+        <SwitchPreferenceCompat
+            android:key="include_keywords"
+            android:title="키워드 포함"
+            android:summary="요약에 핵심 키워드를 포함할지 여부를 설정합니다."
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
+    <!-- 앱 정보 -->
+    <PreferenceCategory android:title="ℹ️ 앱 정보">
+        <Preference
+            android:key="app_version"
+            android:title="버전"
+            android:summary="1.0.0"
+            android:enabled="false" />
+
+        <Preference
+            android:key="send_feedback"
+            android:title="개발자에게 피드백 보내기"
+            android:summary="이메일로 의견을 보내주세요!" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

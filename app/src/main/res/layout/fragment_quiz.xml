@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/frameQuiz"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 기존 전체 퀴즈 화면은 ScrollView로 구성 -->
+    <ScrollView
+        android:id="@+id/scrollQuiz"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:id="@+id/layoutRoot"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- 1. 퀴즈 생성 -->
+            <LinearLayout
+                android:id="@+id/layoutSetup"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:background="@drawable/bg_rounded_white"
+                android:padding="16dp"
+                android:layout_margin="12dp"
+                android:elevation="4dp">
+
+                <TextView
+                    android:text="퀴즈 생성"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="#333333"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp" />
+
+                <Spinner
+                    android:id="@+id/spinnerHistoryFiles"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:padding="8dp"
+                    android:background="@drawable/bg_spinner_rounded" />
+
+                <TextView
+                    android:text="퀴즈 유형 선택"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroupType"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp">
+
+                    <RadioButton
+                        android:id="@+id/radioOX"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="OX 퀴즈" />
+
+                    <RadioButton
+                        android:id="@+id/radioMultipleChoice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="객관식 퀴즈" />
+                </RadioGroup>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnGenerateQuiz"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="퀴즈 생성"
+                    android:backgroundTint="?attr/colorPrimary"
+                    android:textColor="@android:color/white"
+                    app:cornerRadius="16dp"
+                    android:layout_marginBottom="12dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnShowWrongNote"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="오답노트 보기"
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="1dp"
+                    android:textColor="@android:color/black"
+                    app:cornerRadius="16dp" />
+            </LinearLayout>
+
+
+            <!-- 2. 퀴즈 푸는 화면 -->
+            <LinearLayout
+                android:id="@+id/layoutQuiz"
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:background="@android:color/white"
+                android:elevation="2dp">
+
+                <!-- 진행 텍스트 -->
+                <TextView
+                    android:id="@+id/tvQuizProgress"
+                    android:text="1/5"
+                    android:textSize="14sp"
+                    android:textColor="#666666"
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <!-- 문제 카드 -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp"
+                    app:cardBackgroundColor="#FAFAFA">
+
+                    <TextView
+                        android:id="@+id/tvQuizQuestion"
+                        android:text="문제 텍스트"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:padding="20dp"
+                        android:textColor="#212121"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </androidx.cardview.widget.CardView>
+
+                <!-- 보기 -->
+                <LinearLayout
+                    android:id="@+id/layoutOptions"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp" />
+
+                <!-- 버튼 영역 -->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnPrev"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="이전"
+                        android:layout_marginEnd="4dp"
+                        android:background="@drawable/rounded_button" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnNext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="다음"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginEnd="4dp"
+                        android:background="@drawable/rounded_button" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSubmit"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="제출"
+                        android:visibility="gone"
+                        android:layout_marginStart="4dp"
+                        android:background="@drawable/rounded_button" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <!-- 3. 결과 화면 -->
+            <LinearLayout
+                android:id="@+id/layoutResult"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:visibility="gone"
+                android:gravity="center_horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvQuizScore"
+                    android:text="당신의 점수는 4 / 5 입니다!"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/purple_700"
+                    android:gravity="center"
+                    android:layout_marginBottom="24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnShowReview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="문제 결과 보기"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="@color/purple_500"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/rounded_button" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnBackToMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="메인으로 가기"
+                    android:textColor="@android:color/black"
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="1dp"
+                    android:background="@drawable/rounded_outline_button" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- ✅ 4. 오버레이 스타일 리뷰 화면 -->
+    <FrameLayout
+        android:id="@+id/layoutReviewOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="#CC000000"
+        android:elevation="20dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            android:padding="16dp"
+            android:paddingBottom="36dp"
+            android:clipToPadding="false"
+            android:background="@drawable/bg_review_rounded"
+            android:elevation="24dp"
+            android:fitsSystemWindows="true">
+
+
+        <TextView
+                android:text="문제"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp" />
+
+            <!-- ✅ 수정된 ScrollView -->
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:id="@+id/layoutReviewList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </ScrollView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCloseReview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="닫기"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="50dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="@android:color/black"
+                app:strokeColor="@color/black"
+                app:strokeWidth="1dp"
+                app:cornerRadius="16dp" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/layoutWrongNoteOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:paddingBottom="80dp"
+        android:background="#CC000000">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            android:padding="16dp"
+            android:background="@drawable/bg_rounded_white"
+            android:elevation="24dp"
+            android:clipToPadding="false">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="오답노트"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#222222"
+                android:layout_marginBottom="12dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerWrongNotes"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/tvEmptyWrongNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="틀린 문제가 없습니다."
+                android:textSize="16sp"
+                android:textColor="#888888"
+                android:gravity="center"
+                android:visibility="gone"
+                android:layout_marginTop="12dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCloseWrongNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="닫기"
+                android:textColor="@android:color/black"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                app:strokeColor="@color/black"
+                app:strokeWidth="1dp"
+                app:cornerRadius="16dp"
+                android:layout_marginTop="12dp" />
+        </LinearLayout>
+    </FrameLayout>
+
+
+</FrameLayout>

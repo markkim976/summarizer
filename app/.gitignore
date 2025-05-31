@@ -1,0 +1,36 @@
+# 민감 정보 (절대 커밋하지 말아야 할 파일)
+local.properties
+app/google-services.json
+
+# Gradle 관련 파일 (자동 생성, 커밋 불필요)
+.gradle/
+build/
+app/build/
+
+# IntelliJ / Android Studio 설정
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# 캐시 및 임시 파일
+*.log
+*.tmp
+*.bak
+*.swp
+.DS_Store
+
+# 시스템 파일
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Kotlin 컴파일 캐시
+*.class
+*.jar
+*.kotlin_module
+
+# 기타
+captures/
+output.json
+*.apk

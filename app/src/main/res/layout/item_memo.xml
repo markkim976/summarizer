@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:orientation="vertical"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true">
+
+    <!-- 메모 텍스트 (각 항목) -->
+    <TextView
+        android:id="@+id/textMemoContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#222222"
+        android:background="@drawable/memo_background"
+        android:padding="12dp"
+        android:layout_marginBottom="6dp"
+        android:maxLines="5"
+        android:ellipsize="end"
+        android:lineSpacingExtra="4dp"
+        android:text="예시 메모 내용입니다." />
+</LinearLayout>

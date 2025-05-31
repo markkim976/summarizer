@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@android:color/white">
+
+    <!-- 날짜 타이틀 -->
+    <TextView
+        android:id="@+id/textDateTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2025년 4월 10일"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- 메모 리스트: 남는 공간 차지 & 스크롤 가능 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewMemos"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_weight="1"
+        android:overScrollMode="ifContentScrolls"
+        android:layout_marginBottom="12dp" />
+
+    <!-- 메모 입력 필드 -->
+    <EditText
+        android:id="@+id/editMemoInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="메모를 입력하세요"
+        android:padding="12dp"
+        android:background="#EEEEEE"
+        android:textSize="14sp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- 저장 버튼 -->
+    <Button
+        android:id="@+id/btnSaveMemo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="저장하기"
+        android:backgroundTint="#3F51B5"
+        android:textColor="@android:color/white"
+        android:padding="12dp"/>
+</LinearLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- 버튼 배경 색상 (필요에 따라 변경 가능) -->
+    <solid android:color="@color/purple_500" />
+
+    <!-- 둥근 정도 설정 -->
+    <corners android:radius="16dp" />
+
+    <!-- 패딩이 필요하면 아래 추가 가능
+    <padding
+        android:left="12dp"
+        android:top="8dp"
+        android:right="12dp"
+        android:bottom="8dp" />
+    -->
+</shape>
+

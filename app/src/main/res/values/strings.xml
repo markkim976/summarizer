@@ -1,0 +1,15 @@
+<resources>
+    <!-- 앱 이름 -->
+    <string name="app_name">AI 강의 노트</string>
+
+    <!-- 요약 옵션 선택 리스트 -->
+    <string-array name="summary_modes">
+        <item>간단 요약 - 빠르게 핵심만 파악</item>
+        <item>상세 요약 - 깊이 있는 내용 이해</item>
+    </string-array>
+
+    <string-array name="summary_mode_values">
+        <item>simple</item>
+        <item>detailed</item>
+    </string-array>
+</resources>

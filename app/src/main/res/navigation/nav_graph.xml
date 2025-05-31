@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <!-- 홈 프래그먼트 -->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.summarizer.view.main.HomeFragment"
+        android:label="홈"
+        tools:layout="@layout/fragment_home" />
+
+    <!-- 캘린더 프래그먼트 추가 -->
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="com.example.summarizer.view.calendar.CalendarFragment"
+        android:label="캘린더"
+        tools:layout="@layout/fragment_calendar" >
+        <action
+            android:id="@+id/action_calendarFragment_self"
+            app:destination="@id/calendarFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/QuizFragment"
+        android:name="com.example.summarizer.view.quiz.QuizFragment"
+        android:label="퀴즈"
+        tools:layout="@layout/fragment_quiz" />
+
+</navigation>

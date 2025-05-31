@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <!-- 메인 콘텐츠: CoordinatorLayout -->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 상단바(AppBarLayout) -->
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <!-- Toolbar에 햄버거 버튼 배치 -->
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/white"
+                android:theme="@style/ThemeOverlay.MaterialComponents.ActionBar"
+                app:navigationIcon="@drawable/ic_menu"/>
+
+
+                <!-- 남은시간 게이지바 -->
+                <ProgressBar
+                    android:id="@+id/progress_timer"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="170dp"
+                    android:layout_marginTop="7dp"
+                    android:indeterminate="false"
+                    android:max="100"
+                    android:progress="100"
+                    android:progressTint="#5A67D8"
+                    android:visibility="gone"/>
+
+            <!-- 탭 레이아웃 -->
+                <TextView
+                    android:id="@+id/tv_timer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end"
+                    android:gravity="center_vertical|end"
+                    android:paddingEnd="20dp"
+                    android:layout_marginTop="15dp"
+                    android:text="예상시간:00:00"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:visibility="gone"/>
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabIndicatorColor="#805AD5"
+                app:tabIndicatorHeight="4dp"/>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!-- 뷰페이저: 탭에 따라 프래그먼트 전환 -->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+    <!-- 왼쪽 드로어 메뉴 (변경 없음) -->
+    <LinearLayout
+        android:id="@+id/drawer_menu"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:padding="16dp">
+        <TextView
+            android:text="📂 히스토리"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <!-- 히스토리 항목들 -->
+        <!-- RecyclerView 추가하여 히스토리 목록을 동적으로 표시 -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewHistory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

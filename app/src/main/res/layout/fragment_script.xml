@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/frame_script"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 스크롤되는 영역 -->
+    <ScrollView
+        android:id="@+id/scroll_transcription"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 변환된 텍스트 표시 영역 -->
+            <TextView
+                android:id="@+id/tv_result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="강의 음성에 대한 스크립트가 여기에 표시됩니다."
+                android:textSize="16sp"
+                android:textColor="#2D3748"
+                android:padding="12dp"
+                android:layout_marginBottom="60dp"
+                android:gravity="start|top"
+                android:background="@android:color/white"
+                android:scrollbars="vertical" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 오른쪽 하단에 고정된 FloatingActionButton -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_stop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="97dp"
+        android:src="@drawable/ic_mute"
+        android:contentDescription="음성 변환 버튼"
+        android:visibility="gone"
+        app:backgroundTint="#B63030" />
+</FrameLayout>

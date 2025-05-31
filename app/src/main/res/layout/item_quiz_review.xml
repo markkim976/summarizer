@@ -1,0 +1,73 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginHorizontal="4dp"
+    android:elevation="3dp"
+    android:backgroundTint="#FFFFFF"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="3dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvReviewQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="문제"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/tvReviewUserAnswer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="내 답:"
+            android:textColor="#333333"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/tvReviewCorrectAnswer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="정답:"
+            android:textColor="#333333" />
+
+        <TextView
+            android:id="@+id/tvReviewResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="결과"
+            android:textStyle="bold"
+            android:textColor="#4CAF50" />
+
+        <!-- ✅ 해설: 항상 보여짐 (초기 상태도 보여짐) -->
+        <TextView
+            android:id="@+id/tvWrongExplanation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="해설: 여기에 해설이 들어갑니다"
+            android:textColor="#666666"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp" />
+
+        <!-- ✅ 보기: 기본은 gone (객관식에서만 setVisible됨) -->
+        <TextView
+            android:id="@+id/tvWrongOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="보기:"
+            android:textColor="#666666"
+            android:textSize="14sp"
+            android:layout_marginTop="6dp"
+            android:visibility="gone" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
